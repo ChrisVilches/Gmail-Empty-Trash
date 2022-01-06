@@ -1,0 +1,5 @@
+credentials.json
+sender_patterns.txt
+.vscode
+__pycache__
+token.json
