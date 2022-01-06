@@ -1,4 +1,6 @@
-# Gmail Python Quickstart
+# Gmail Empty Trash
+
+Python script to empty Gmail trash using the Gmail API
 
 ## Install
 
