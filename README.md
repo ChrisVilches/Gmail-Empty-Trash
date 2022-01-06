@@ -22,12 +22,11 @@ python main.py
 
 ## Troubleshooting
 
-### You can't sign in to this app because it doesn't comply with Google's OAuth 2.0 policy for keeping apps secure.
+### Authenticate for the first time
 
-This errors appears sometimes when authenticating for the first time.
-
-1. Make sure `run_local_server` starts a server in `localhost`.
+1. Create the credentials in the Google Cloud web app and setup the `credentials.json` file accordingly.
 2. `rm token.json`
-3. Access `localhost`, but since it may be on a remote server, you need to create an SSH tunnel (apparently the URL must be `localhost`, or else it's seen as insecure by Google) using `ssh -L 8080:127.0.0.1:8080 USER@REMOTE_HOST -p PORT`
-4. Start the script and open the URL in a browser.
-5. You should see `The authentication flow has completed, you may close this window.` (URL of this page is `localhost`) after going through the dialog.
+3. Run the script, and copy the URL that appears in the console.
+4. After going through the Google Auth dialog, you'll reach a page which URL is `localhost`, and if it's running on a server, then it won't load (if it's local, then auth should end successfully).
+5. In order to access `localhost`, create a SSH tunnel using `ssh -L 8080:127.0.0.1:8080 USER@REMOTE_HOST -p PORT` (Note: apparently the URL must be `localhost`, or else Google considers it to be insecure and fails).
+6. Reload the page in the browser, and you should see `The authentication flow has completed, you may close this window.`.
