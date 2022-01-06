@@ -66,6 +66,10 @@ def main():
     messages_client = create_messages_client()
     sender_patterns = read_sender_patterns_file()
 
+    if not sender_patterns:
+        print(SENDER_PATTERNS_FILENAME, 'is empty. Exiting.')
+        return
+
     try:
         trash_messages = get_messages_from_trash(messages_client)
         filtered_msgs = filter_using_patterns(trash_messages, sender_patterns)
