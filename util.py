@@ -10,9 +10,9 @@ class Util:
         return set(lines)
 
     @staticmethod
-    def substring_of_any(sender, patterns):
-        sender = sender.lower()
-        for pattern in patterns:
-            if pattern.lower() in sender:
+    def contains_any(long_string, str_array):
+        long_string = long_string.lower()
+        for s in str_array:
+            if s.lower() in long_string:
                 return True
         return False

@@ -29,7 +29,7 @@ def filter_using_patterns(messages, patterns):
             lambda hdr: hdr['name'] == 'From', msg['payload']['headers'])
         msg_from = list(msg_from)[0]
 
-        if Util.substring_of_any(msg_from['value'], patterns):
+        if Util.contains_any(msg_from['value'], patterns):
             result.append(msg)
     return result
 
