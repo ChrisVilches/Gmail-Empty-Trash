@@ -12,10 +12,11 @@ from util import Util
 # If modifying these scopes, delete the file token.json.
 SCOPES = ['https://mail.google.com/']
 SENDER_PATTERNS_FILENAME = './sender_patterns.txt'
+BATCH_SIZE = 5
 
 
 def get_messages_from_trash(messages_client):
-    results = messages_client.list(userId='me', maxResults=5,
+    results = messages_client.list(userId='me', maxResults=BATCH_SIZE,
                                    labelIds=['TRASH']).execute()
     msgs = results.get('messages', [])
     return list(map(lambda m: messages_client.get(userId='me', id=m['id']).execute(), msgs))

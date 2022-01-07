@@ -11,7 +11,8 @@ class Util:
 
     @staticmethod
     def substring_of_any(sender, patterns):
+        sender = sender.lower()
         for pattern in patterns:
-            if pattern in sender:
+            if pattern.lower() in sender:
                 return True
         return False
